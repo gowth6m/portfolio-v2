@@ -1,0 +1,16 @@
+.typed-text-cursor {
+    color: white;
+    animation: typing 1s step-end infinite;
+}
+
+@keyframes typing {
+    0% {
+        color: white;
+    }
+    49% {
+        color: white;
+    }
+    50% {
+        color: transparent;
+    }
+}
