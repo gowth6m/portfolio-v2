@@ -45,6 +45,12 @@ export default function Hero() {
           >
             projects
           </a>
+          <a
+            href="#contact"
+            className="text-[var(--slate)] hover:text-[var(--lightest-slate)] uppercase"
+          >
+            contact
+          </a>
         </div>
       </div>
 

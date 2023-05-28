@@ -4,46 +4,51 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function Experience() {
   return (
-    <section id="experience" className="flex flex-col gap-y-8">
-      {experience.map((experience: ExperienceModel, index: number) => (
-        <div
-          key={index}
-          className="flex flex-col md:flex-row gap-x-4 justify-start align-top"
-        >
-          <div className="text-[var(--slate)] text-xs uppercase flex-initial w-32 leading-6">
-            <p className="my-1">{experience.dates}</p>
-          </div>
-          <div className="flex flex-col border-slate flex-1 gap-y-2">
-            <h2 className="text-[var(--lightest-slate)] text-lg font-bold group">
-              <a
-                className="text-[var(--lightest-slate)] group-hover:text-[var(--green-bright)] duration-150"
-                href={experience.link}
-                target="_blank"
-              >
-                {experience.role} · {experience.company}
-                <FontAwesomeIcon
-                  icon={faArrowRight}
-                  className="inline h-[12px] hover:text-[var(--green-bright)] px-2 rotate-[-45deg] duration-150 group-hover:translate-x-[4px] group-hover:translate-y-[-4px]"
-                  size="xs"
-                />
-              </a>
-            </h2>
-
-            <p className="text-sm mb-2">{experience.description}</p>
-
-            <div className="flex flex-wrap gap-2">
-              {experience.technologies.map((technology) => (
-                <span
-                  key={technology}
-                  className="text-[var(--green-bright)] text-xs bg-[var(--green-tint)] px-2 py-1 rounded-md"
+    <section id="experience" className="flex flex-col">
+      <h1 className="text-xl font-semibold text-[var(--lightest-slate)] md:hidden">
+        Experience
+      </h1>
+      <div className="flex flex-col gap-y-8">
+        {experience.map((experience: ExperienceModel, index: number) => (
+          <div
+            key={index}
+            className="flex flex-col md:flex-row gap-x-4 justify-start align-top"
+          >
+            <div className="text-[var(--slate)] text-xs uppercase flex-initial w-32 leading-6">
+              <p className="my-1">{experience.dates}</p>
+            </div>
+            <div className="flex flex-col border-slate flex-1 gap-y-2">
+              <h2 className="text-[var(--lightest-slate)] text-lg font-bold group">
+                <a
+                  className="text-[var(--lightest-slate)] group-hover:text-[var(--green-bright)] duration-150"
+                  href={experience.link}
+                  target="_blank"
                 >
-                  {technology}
-                </span>
-              ))}
+                  {experience.role} · {experience.company}
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="inline h-[12px] hover:text-[var(--green-bright)] px-2 rotate-[-45deg] duration-150 group-hover:translate-x-[4px] group-hover:translate-y-[-4px]"
+                    size="xs"
+                  />
+                </a>
+              </h2>
+
+              <p className="text-sm mb-2">{experience.description}</p>
+
+              <div className="flex flex-wrap gap-2">
+                {experience.technologies.map((technology) => (
+                  <span
+                    key={technology}
+                    className="text-[var(--green-bright)] text-xs bg-[var(--green-tint)] px-2 py-1 rounded-md"
+                  >
+                    {technology}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </section>
   );
 }

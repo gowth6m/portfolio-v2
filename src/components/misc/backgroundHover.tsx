@@ -14,12 +14,12 @@ const BackgroundHover: React.FC = () => {
       if (now - lastCalled.current < THROTTLE_INTERVAL) return;
 
       lastCalled.current = now;
-      const { pageX, pageY } = event; 
+      const { pageX, pageY } = event;
 
       if (hoverLight.current) {
-        hoverLight.current.style.left = `${pageX}px`; 
-        hoverLight.current.style.top = `${pageY}px`; 
-        hoverLight.current.style.position = "absolute";
+        hoverLight.current.style.left = `${pageX}px`;
+        hoverLight.current.style.top = `${pageY}px`;
+        hoverLight.current.style.position = "fixed";
         hoverLight.current.style.transition = "left 0s, top 0s"; // add CSS transition
       }
     };
@@ -32,11 +32,11 @@ const BackgroundHover: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <>
       {/* HOVER LIGHT */}
       <div className="hidden md:block" ref={hoverLight} id="hoverLight"></div>
       <div className="absolute h-full w-full backDropper"></div>
-    </div>
+    </>
   );
 };
 

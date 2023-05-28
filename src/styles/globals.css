@@ -226,3 +226,9 @@ body {
     rotate: 360deg;
   }
 }
+
+*:focus {
+  outline: none;  
+  border: 2px dashed var(--green-bright);
+  border-radius: 5px;
+}
