@@ -179,14 +179,10 @@ body {
 
 .header-nav a:hover::before,
 .header-nav a:hover::before {
-  width: 50px; /* adjust to your needs */
+  width: 60px; /* adjust to your needs */
   background: var(--lightest-slate); /* adjust to your needs */
 }
 
 .botttom-align {
   height: calc(100vh - 12rem);
-}
-
-* {
-  border: red solid 1px;
 }

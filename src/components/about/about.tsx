@@ -4,6 +4,9 @@ import Me from "../misc/me";
 export default function About() {
   return (
     <div id="aboutme" className="container flex flex-col min-h-fit">
+      <h1 className="text-xl font-semibold text-[var(--lightest-slate)] md:hidden my-2 md:my-0">
+        About Me
+      </h1>
       <p>
         Back in 2018, I decided to create a 2D top-down zombie game for the web
         and tumbled head first into the rabbit hole of coding and web

@@ -1,7 +1,6 @@
 import React from "react";
 import TypingText from "./typingText";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faHouse, faUser } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import {
   faCodepen,
@@ -13,8 +12,8 @@ import {
 
 export default function Hero() {
   return (
-    <div id="home" className="flex flex-col justify-between botttom-align">
-      <div className="flex flex-col gap-y-24">
+    <div id="home" className="flex flex-col md:justify-between mb-16 md:mb-0 h-full">
+      <div className="flex flex-col md:gap-y-24">
         {/* Name */}
         <div className="flex flex-col gap-y-2">
           <h1 className="text-4xl font-semibold text-[var(--lightest-slate)]">
@@ -27,7 +26,7 @@ export default function Hero() {
         </div>
 
         {/* Nav */}
-        <div className="flex flex-col gap-y-6 text-sm header-nav duration-300">
+        <div className="md:flex flex-col gap-y-6 text-sm header-nav duration-300 hidden">
           <a
             href="#aboutme"
             className="text-[var(--slate)] hover:text-[var(--lightest-slate)] uppercase"
@@ -50,12 +49,12 @@ export default function Hero() {
       </div>
 
       {/* Socials */}
-      <div className="flex flex-row gap-x-6">
+      <div className="flex flex-row gap-x-6 my-6 md:mb-0 md:mt-auto">
         {socials.map((social, index) => (
           <Link key={index} href={social.href} target="_blank">
             <FontAwesomeIcon
               icon={social.icon}
-              className="h-[25px] hover:text-[var(--green-bright)]"
+              className="h-[25px] hover:text-[var(--green-bright)] duration-300 hover:translate-y-[-4px]"
             />
           </Link>
         ))}
