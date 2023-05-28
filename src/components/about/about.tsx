@@ -3,7 +3,7 @@ import Me from "../misc/me";
 
 export default function About() {
   return (
-    <div id="aboutme" className="container flex flex-col min-h-fit">
+    <section id="aboutme" className="container flex flex-col min-h-fit">
       <h1 className="text-xl font-semibold text-[var(--lightest-slate)] md:hidden my-2 md:my-0">
         About Me
       </h1>
@@ -37,7 +37,7 @@ export default function About() {
         hiking with friends and indulging my culinary curiosity by exploring new
         and exciting eateries.
       </p>
-    </div>
+    </section>
   );
 }
 

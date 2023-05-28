@@ -13,7 +13,7 @@ export default function Home() {
         </div>
 
         {/* Right */}
-        <div className="md:w-1/2 md:ml-auto">
+        <div className="md:w-1/2 md:ml-auto flex flex-col gap-y-20">
           <About />
           <Experience />
           <Projects />

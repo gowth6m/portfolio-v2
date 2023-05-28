@@ -12,7 +12,7 @@ import {
 
 export default function Hero() {
   return (
-    <div id="home" className="flex flex-col md:justify-between mb-16 md:mb-0 h-full">
+    <section id="home" className="flex flex-col md:justify-between mb-16 md:mb-0 h-full">
       <div className="flex flex-col md:gap-y-24">
         {/* Name */}
         <div className="flex flex-col gap-y-2">
@@ -34,13 +34,13 @@ export default function Hero() {
             about
           </a>
           <a
-            href="experience"
+            href="#experience"
             className="text-[var(--slate)] hover:text-[var(--lightest-slate)] uppercase"
           >
             experience
           </a>
           <a
-            href="projects"
+            href="#projects"
             className="text-[var(--slate)] hover:text-[var(--lightest-slate)] uppercase"
           >
             projects
@@ -59,7 +59,7 @@ export default function Hero() {
           </Link>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -6,57 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Projects() {
   return (
-    <div id="projects" className="container flex flex-col min-h-[100vh]">
-      <div className="w-5/6 lg:w-4/6 mx-auto my-12 md:my-28">
-        <div className="flex flex-col overflow-hidden text-sm md:text-base gap-y-4 w-full">
-          {/* Row 1 */}
-          <div className="flex flex-col md:flex-row gap-4">
-            <h1 className="title text-left flex-1">
-              <span className="text-[var(--green-bright)]">/ </span>my-creations
-            </h1>
-          </div>
-
-          {/* Row 2 - experience */}
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {projects.map((project, index) => (
-              <div
-                className="flex flex-col gap-4 rounded-lg bg-[var(--light-navy)]"
-                key={index}
-              >
-                <div className="mx-4 mt-4 flex flex-row justify-between">
-                  <FontAwesomeIcon icon={faFolder} className="h-[35px]" />
-                  <div className="flex flex-row gap-4">
-                    <FontAwesomeIcon
-                      icon={faExternalLinkAlt}
-                      className="h-[20px]"
-                    />
-                    <FontAwesomeIcon icon={faGithub} className="h-[20px]" />
-                  </div>
-                </div>
-                <div className="flex flex-col flex-1 p-4">
-                  <h1 className="text-[var(--white)] text-xl font-bold">
-                    {project.title}
-                  </h1>
-                  <p className="text-[var(--slate)] text-sm tracking-wider">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-row flex-wrap gap-2 mt-2">
-                    {project.stack.map((tech, index) => (
-                      <div
-                        className="text-[var(--slate)] text-sm bg-[var(--lightest-navy)] px-2 py-1 rounded-md"
-                        key={index}
-                      >
-                        {tech}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
+    <section id="projects" className="container flex flex-col min-h-[100vh]">
+     
+    </section>
   );
 }
 
