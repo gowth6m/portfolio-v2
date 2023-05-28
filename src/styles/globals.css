@@ -55,7 +55,6 @@ body {
 body {
   color: var(--slate);
   background: var(--navy);
-  /* font-family: 'Comfortaa', cursive; */
 }
 
 ::-moz-selection {
@@ -170,19 +169,60 @@ body {
   transition-duration: 300ms;
   content: "";
   display: inline-block;
-  width: 30px; /* adjust to your needs */
-  height: 1px; /* adjust to your needs */
+  width: 30px; 
+  height: 1px; 
   margin-bottom: 4px;
-  background: var(--slate); /* adjust to your needs */
-  margin-right: 10px; /* adjust to your needs */
+  background: var(--slate); 
+  margin-right: 10px; 
 }
 
 .header-nav a:hover::before,
 .header-nav a:hover::before {
-  width: 60px; /* adjust to your needs */
-  background: var(--lightest-slate); /* adjust to your needs */
+  width: 60px; 
+  background: var(--lightest-slate); 
 }
 
 .botttom-align {
   height: calc(100vh - 12rem);
+}
+
+#hoverLight {
+  height: 180px;
+  aspect-ratio: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: linear-gradient(to right,#a166ed,#5777ff);
+  animation: rotate 20s infinite;
+  z-index: -2;
+}
+
+.backDropper {
+  backdrop-filter: blur(15vmax);
+  min-height: 100%;
+  position: fixed; 
+  width: 100%;    
+  top: 0;           
+  left: 0;          
+  z-index: -2;
+}
+
+.content {
+  position: relative;
+}
+
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+  
+  50% {
+    scale: 1 1.5;
+  }
+  
+  to {
+    rotate: 360deg;
+  }
 }

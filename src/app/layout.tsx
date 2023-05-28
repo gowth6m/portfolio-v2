@@ -5,9 +5,7 @@ import "../styles/nav.css";
 import { Inter } from "next/font/google";
 import Head from "./head";
 import BackgroundAnimation from "@/components/misc/backgroundAnimation";
-import SideEmail from "@/components/misc/sideEmail";
-import SideSocials from "@/components/misc/sideSocials";
-import NavBar from "@/components/nav/navBar";
+import BackgroundHover from "@/components/misc/backgroundHover";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,9 +20,7 @@ export default function RootLayout({
 
       <body>
         <BackgroundAnimation color={"white"} />
-        {/* <SideSocials />
-        <SideEmail />
-        <NavBar /> */}
+        <BackgroundHover />
         {children}
       </body>
     </html>
