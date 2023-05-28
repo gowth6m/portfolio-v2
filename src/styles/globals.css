@@ -165,3 +165,28 @@ body {
 .hover2:focus {
   color: var(--light-slate);
 }
+
+.header-nav a::before {
+  transition-duration: 300ms;
+  content: "";
+  display: inline-block;
+  width: 30px; /* adjust to your needs */
+  height: 1px; /* adjust to your needs */
+  margin-bottom: 4px;
+  background: var(--slate); /* adjust to your needs */
+  margin-right: 10px; /* adjust to your needs */
+}
+
+.header-nav a:hover::before,
+.header-nav a:hover::before {
+  width: 50px; /* adjust to your needs */
+  background: var(--lightest-slate); /* adjust to your needs */
+}
+
+.botttom-align {
+  height: calc(100vh - 12rem);
+}
+
+* {
+  border: red solid 1px;
+}

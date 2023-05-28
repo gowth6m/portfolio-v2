@@ -5,7 +5,7 @@ import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 const SCREEN_SIZE_LIMIT = 768;
 const SPEED_MAX = 0.6;
 const SPEED_MIN = 0.05;
-const SIZE = 3;
+const SIZE = 2;
 
 export default function BackgroundAnimation({
   color,
