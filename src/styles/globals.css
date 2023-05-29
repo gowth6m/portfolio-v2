@@ -182,6 +182,16 @@ body {
   background: var(--lightest-slate); 
 }
 
+.header-nav-current::before {
+  width: 60px; 
+  background: var(--lightest-slate); 
+}
+
+.header-nav-current {
+  color: var(--lightest-slate);
+}
+
+
 .botttom-align {
   height: calc(100vh - 12rem);
 }
@@ -227,7 +237,7 @@ body {
   }
 }
 
-*:focus {
+*:focus-visible {
   outline: none;  
   border: 2px dashed var(--green-bright);
   border-radius: 5px;

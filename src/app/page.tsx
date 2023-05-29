@@ -14,7 +14,7 @@ export default function Home() {
         </div>
 
         {/* Right */}
-        <div className="md:w-1/2 md:ml-auto flex flex-col gap-y-20">
+        <div className="md:w-1/2 md:ml-auto flex flex-col gap-y-20 md:gap-y-28">
           <About />
           <Experience />
           <Projects />

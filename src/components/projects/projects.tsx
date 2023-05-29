@@ -13,8 +13,8 @@ export default function Projects() {
       </h1>
       <div className="flex flex-col gap-y-8">
         {projects.map((project, index) => (
-          <div key={index} className="flex flex-row gap-x-4">
-            <div className="flex-initial w-32">
+          <div key={index} className="flex flex-col md:flex-row gap-x-4">
+            <div className="flex-initial w-4/6 md:w-32 order-2 md:order-1 my-4 md:my-0">
               <div className="pr-2 mt-1">
                 <img
                   src={project.image}
@@ -23,7 +23,7 @@ export default function Projects() {
                 ></img>
               </div>
             </div>
-            <div className="flex flex-col gap-y-2 flex-1">
+            <div className="flex flex-col gap-y-2 flex-1 order-1 md:order-2">
               <h2 className="text-[var(--lightest-slate)] text-lg font-bold group">
                 <a className="text-[var(--lightest-slate)] group-hover:text-[var(--green-bright)] duration-150">
                   {project.title}
@@ -36,6 +36,17 @@ export default function Projects() {
               </h2>
 
               <p className="text-sm mb-2">{project.description}</p>
+
+              <div className="flex flex-wrap gap-2">
+                {project.stack.map((technology) => (
+                  <span
+                    key={technology}
+                    className="text-[var(--green-bright)] text-xs bg-[var(--green-tint)] px-2 py-1 rounded-md"
+                  >
+                    {technology}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         ))}

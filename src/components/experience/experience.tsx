@@ -12,7 +12,7 @@ export default function Experience() {
         {experience.map((experience: ExperienceModel, index: number) => (
           <div
             key={index}
-            className="flex flex-col md:flex-row gap-x-4 justify-start align-top"
+            className="flex flex-col md:flex-row gap-x-4 justify-start align-top item-hover"
           >
             <div className="text-[var(--slate)] text-xs uppercase flex-initial w-32 leading-6">
               <p className="my-1">{experience.dates}</p>

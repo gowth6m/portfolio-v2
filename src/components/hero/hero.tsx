@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import TypingText from "./typingText";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,8 +13,13 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function Hero() {
+  const [nav, setNav] = React.useState(0);
+
   return (
-    <section id="home" className="flex flex-col md:justify-between mb-16 md:mb-0 h-full">
+    <section
+      id="home"
+      className="flex flex-col md:justify-between mb-16 md:mb-0 h-full"
+    >
       <div className="flex flex-col md:gap-y-24">
         {/* Name */}
         <div className="flex flex-col gap-y-2">
@@ -27,30 +34,20 @@ export default function Hero() {
 
         {/* Nav */}
         <div className="md:flex flex-col gap-y-6 text-sm header-nav duration-300 hidden">
-          <a
-            href="#aboutme"
-            className="text-[var(--slate)] hover:text-[var(--lightest-slate)] uppercase"
-          >
-            about
-          </a>
-          <a
-            href="#experience"
-            className="text-[var(--slate)] hover:text-[var(--lightest-slate)] uppercase"
-          >
-            experience
-          </a>
-          <a
-            href="#projects"
-            className="text-[var(--slate)] hover:text-[var(--lightest-slate)] uppercase"
-          >
-            projects
-          </a>
-          <a
-            href="#contact"
-            className="text-[var(--slate)] hover:text-[var(--lightest-slate)] uppercase"
-          >
-            contact
-          </a>
+          {navItems.map((item, index: number) => (
+            <a
+              key={index}
+              href={item.href}
+              className={`text-[var(--slate)] hover:text-[var(--lightest-slate)] uppercase mr-auto ${
+                nav === index ? "header-nav-current" : ""
+              }`}
+              onClick={() => {
+                setNav(index);
+              }}
+            >
+              {item.name}
+            </a>
+          ))}
         </div>
       </div>
 
@@ -94,5 +91,24 @@ const socials = [
     name: "CodePen",
     icon: faCodepen,
     href: "https://codepen.io/Gowth6m",
+  },
+];
+
+const navItems = [
+  {
+    name: "about",
+    href: "#aboutme",
+  },
+  {
+    name: "experience",
+    href: "#experience",
+  },
+  {
+    name: "projects",
+    href: "#projects",
+  },
+  {
+    name: "contact",
+    href: "#contact",
   },
 ];
