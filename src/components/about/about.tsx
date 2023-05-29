@@ -36,9 +36,10 @@ export default function About() {
         About Me
       </motion.h1>
       <motion.p variants={containerVariants} initial="hidden" animate="visible">
-        Back in 2018, I decided to create a 2D top-down zombie game for the web
-        and tumbled head first into the rabbit hole of coding and web
-        development.
+        It all started when I first tried to edit a website by clicking on
+        inspect element. Later led to me building my first website using HTML,
+        CSS and JavaScript. I slowly fell into a rabbit hole of learning new web
+        technologies and going into the depths of software engineering.
         <br />
         <br />
         Fast forward today, I&#39;m a software engineer based in{" "}
@@ -49,8 +50,8 @@ export default function About() {
         >
           London, UK
         </a>
-        . My current role involves building robust and innovative software
-        solutions for{" "}
+        . My current role involves leading frontend development, building robust
+        and innovative software solutions for{" "}
         <a
           href="https://hived.space"
           target="_blank"
@@ -58,12 +59,13 @@ export default function About() {
         >
           HIVED
         </a>{" "}
-        , from intuitive tracking pages to sophisticated internal dashboards.
+        - from intuitive tracking pages, sophisticated internal dashboards and
+        other tools to help the business grow.
         <br />
         <br />
         When I&#39;m not at the computer, I&#39;m usually training at the gym,
-        hiking with friends and indulging my culinary curiosity by exploring new
-        and exciting eateries.
+        exploring new places with friends and indulging my culinary curiosity by
+        going on a quest for food.
       </motion.p>
     </motion.section>
   );

@@ -65,7 +65,7 @@ export default function Hero() {
       initial="hidden"
       animate="visible"
     >
-      <div className="flex flex-col md:gap-y-24">
+      <div className="flex flex-col md:gap-y-16">
         {/* Name */}
         <div className="flex flex-col gap-y-2">
           <h1 className="text-4xl font-semibold text-[var(--lightest-slate)]">

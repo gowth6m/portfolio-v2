@@ -15,8 +15,10 @@ export default function TypingText({ className }: any) {
   const toRotate = [
     "I create stuff sometimes.",
     "I'm probably eating right now",
-    "what do you think about my website?",
-    "scroll down to see more!",
+    "What do you think about my website?",
+    "Send me food suggestions!",
+    "Scroll down to see more!",
+    "Eat, Sleep, Code, Repeat",
   ];
 
   useEffect(() => {
