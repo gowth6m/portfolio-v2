@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faLink } from "@fortawesome/free-solid-svg-icons";
 
 export default function Experience() {
   return (
@@ -33,7 +33,28 @@ export default function Experience() {
                 </a>
               </h2>
 
-              <p className="text-sm mb-2">{experience.description}</p>
+              <p className="text-sm mb-0">{experience.description}</p>
+
+              {experience.projects && (
+                <div className="flex flex-col gap-y-2 mb-2">
+                  {experience.projects.map((project) => (
+                    <div key={project.title} className="group">
+                      <a
+                        className="text-[var(--lightest-slate)] text-sm group-hover:text-[var(--green-bright)] duration-150"
+                        href={project.link}
+                        target="_blank"
+                      >
+                        <FontAwesomeIcon
+                          icon={faLink}
+                          className="inline h-[12px] px-2 group-hover:text-[var(--green-bright)] duration-150"
+                          size="xs"
+                        />
+                        {project.title}
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              )}
 
               <div className="flex flex-wrap gap-2">
                 {experience.technologies.map((technology) => (
@@ -61,6 +82,10 @@ type ExperienceModel = {
   description: string;
   descriptions: string[];
   technologies: string[];
+  projects?: {
+    title: string;
+    link: string;
+  }[];
 };
 
 const experience: ExperienceModel[] = [
@@ -85,6 +110,12 @@ const experience: ExperienceModel[] = [
       "Golang",
       "AWS Services",
     ],
+    projects: [
+      {
+        title: "Tracking Page",
+        link: "https://track.hived.space",
+      },
+    ],
   },
   {
     role: "Software Engineer",
@@ -107,6 +138,12 @@ const experience: ExperienceModel[] = [
       "DynamoDB",
       "Cognito",
       "CDK",
+    ],
+    projects: [
+      {
+        title: "Student App",
+        link: "https:/m.exeter.ac.uk",
+      },
     ],
   },
   {
@@ -141,6 +178,12 @@ const experience: ExperienceModel[] = [
       "Next",
       "Express",
       "MongoDB",
+    ],
+    projects: [
+      {
+        title: "GCE",
+        link: "https://greatcomcatengineering.com",
+      },
     ],
   },
 ];

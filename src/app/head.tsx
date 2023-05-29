@@ -24,12 +24,11 @@ export default function Head() {
       <meta name="twitter:title" content={metadata.title} />
       <meta name="twitter:description" content={metadata.description} />
       <meta name="twitter:image" content="/logo/logo.png" />
-      <meta name="theme-color" content="#000000" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" href="logo/logo.svg" />
       <link rel="icon" href="logo/logo.svg" type="image/svg+xml" />
       <link rel="apple-touch-icon" href="logo/logo.png" />
-      {/* <link rel="manifest" href="/manifest.json" /> */}
+      <meta name="theme-color" content="#8892b014" />
 
       <title>Gowtham</title>
 

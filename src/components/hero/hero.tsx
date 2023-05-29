@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import TypingText from "./typingText";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,8 +11,6 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function Hero() {
-  const [nav, setNav] = React.useState(0);
-
   return (
     <section
       id="home"
@@ -38,12 +34,7 @@ export default function Hero() {
             <a
               key={index}
               href={item.href}
-              className={`text-[var(--slate)] hover:text-[var(--lightest-slate)] uppercase mr-auto ${
-                nav === index ? "header-nav-current" : ""
-              }`}
-              onClick={() => {
-                setNav(index);
-              }}
+              className={`text-[var(--slate)] hover:text-[var(--lightest-slate)] uppercase mr-auto`}
             >
               {item.name}
             </a>

@@ -25,14 +25,27 @@ export default function Projects() {
             </div>
             <div className="flex flex-col gap-y-2 flex-1 order-1 md:order-2">
               <h2 className="text-[var(--lightest-slate)] text-lg font-bold group">
-                <a className="text-[var(--lightest-slate)] group-hover:text-[var(--green-bright)] duration-150">
+                <div className="text-[var(--lightest-slate)] group-hover:text-[var(--green-bright)] duration-150">
                   {project.title}
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    className="inline h-[12px] hover:text-[var(--green-bright)] px-2 rotate-[-45deg] duration-150 group-hover:translate-x-[4px] group-hover:translate-y-[-4px]"
-                    size="xs"
-                  />
-                </a>
+                  {project.link && (
+                    <a href={project.link} target="_blank">
+                      <FontAwesomeIcon
+                        icon={faExternalLinkAlt}
+                        className="inline h-[16px] hover:text-[var(--green-bright)] pl-4 pr-2 duration-150"
+                        size="xs"
+                      ></FontAwesomeIcon>
+                    </a>
+                  )}
+                  {project.github && (
+                    <a href={project.github} target="_blank">
+                      <FontAwesomeIcon
+                        icon={faGithub}
+                        className="inline h-[16px] hover:text-[var(--green-bright)] px-2 duration-150"
+                        size="xs"
+                      ></FontAwesomeIcon>
+                    </a>
+                  )}
+                </div>
               </h2>
 
               <p className="text-sm mb-2">{project.description}</p>
@@ -58,9 +71,10 @@ export default function Projects() {
 const projects = [
   {
     title: "University of Exeter App",
-    description: "University wide app used by over 20,000 students",
+    description:
+      "University wide app used by over 20,000 students. Built with Flutter frontend - consuming a Node.js backend microservices architecture. Has features such as timetable, maps, events, news, and more.",
     image: "./images/uoe_app.jpg",
-    link: "",
+    link: "https://m.exeter.ac.uk",
     github: "",
     stack: [
       "Flutter",
@@ -75,9 +89,10 @@ const projects = [
   },
   {
     title: "Great Comcat Engineering",
-    description: "E-commerce website for Great Comcat Engineering Ltd.",
+    description:
+      "E-commerce website for Great Comcat Engineering Ltd. Built with Next.js, Tailwind, Framer Motion and MongoDB. Has features such as Stripe and PayPal payments, and more.",
     image: "./images/gce_web.png",
-    link: "",
+    link: "https://www.greatcomcatengineering.com/",
     github: "",
     stack: [
       "Next.js",
@@ -91,54 +106,55 @@ const projects = [
   {
     title: "Reddit Viewer",
     description:
-      "A small Flutter application to search and view details about Reddit posts as such 'r/topics'",
+      "A small Flutter application to search and view details about Reddit posts as such 'r/topics'. Built with Flutter and consuming the Reddit API. Uses Providers and BLoC for state management and Chopper for API calls.",
     image: "./images/reddit_app.png",
-    link: "",
-    github: "",
+    link: "https://gowth6m.github.io/reddit-viewer/",
+    github: "https://github.com/gowth6m/reddit-viewer",
     stack: ["Flutter", "Providers", "BLoC", "Chopper", "AWS Services"],
   },
   {
     title: "Zombie Maze",
     description:
-      "A simple 2D top-down zombie shooting game created in Python using the PyGame library",
+      "A simple 2D top-down zombie shooting game created in Python using the PyGame library. The game uses a tilemap created in Tiled. The game has a main menu, game over screen, and a high score system.",
     image: "./images/zombie_maze.gif",
     link: "",
-    github: "",
+    github: "https://github.com/gowth6m/zombie-maze",
     stack: ["Python", "PyGame", "Tilemap", "Tiled"],
   },
   {
     title: "Stugether",
     description:
-      "Web application built with Django to connect students together",
+      "Web application built with Django to connect students together. Has features such as a chat system, events, and more. Deployed on Heroku.",
     image: "./images/stugether_app.png",
-    link: "",
-    github: "",
+    link: "https://stugether.herokuapp.com/",
+    github: "https://github.com/gowth6m/stugether",
     stack: ["Django", "Bootstrap", "PostgreSQL", "Heroku", "Vue.js"],
   },
   {
     title: "Gravity Simulator",
     description:
-      "Simulation of gravity between particles written in JavaScript",
+      "Simulation of gravity between particles written in JavaScript. Uses HTML Canvas to render the particles. Has features such as changing the number of particles, and more.",
     image: "./images/gravitySim_app.png",
-    link: "",
-    github: "",
+    link: "https://gowth6m.github.io/gravity-simulator/",
+    github: "https://github.com/gowth6m/gravity-simulator",
     stack: ["JavaScript", "HTML", "CSS"],
   },
   {
     title: "Lift Simulator",
-    description: "A simulation of a lift system implemented in Java with GUI",
+    description:
+      "A simulation of a lift system implemented in Java with GUI. Uses JavaFX for the GUI. Has features such as changing the number of floors, and more. Implemented using the MVC design pattern.",
     image: "./images/liftSim.gif",
     link: "",
-    github: "",
+    github: "https://github.com/gowth6m/lift-system",
     stack: ["Java", "JavaFX", "Maven"],
   },
   {
     title: "Human-Object Interaction Research",
     description:
-      "Research project to investigate human-object interaction of various models to improve mAP scores",
+      "Research project to investigate human-object interaction of various models to improve mAP scores. Built with Python and PyTorch. Uses YOLOv3, CNN, R-CNN, HICO, and COCO. Uses Jupyter Notebook for data analysis.",
     image: "./images/hoi.png",
-    link: "",
-    github: "",
+    link: "https://drive.google.com/file/d/1Al9_xuqENbQTCBpftxPDgjBnDaKR9nei/view?usp=sharing",
+    github: "https://github.com/gowth6m/human-object-interaction",
     stack: [
       "Python",
       "PyTorch",
@@ -153,10 +169,10 @@ const projects = [
   {
     title: "Game of Life in Haskell",
     description:
-      "Implementation of Conway's Game of Life in Haskell using an imperative approach",
+      "Implementation of Conway's Game of Life in Haskell using an imperative approach. UI is created by printing to the terminal. Uses the HSpec testing framework.",
     image: "./images/gol.gif",
     link: "",
-    github: "",
+    github: "https://github.com/gowth6m/game-of-life-haskell",
     stack: ["Haskell"],
   },
 ];
