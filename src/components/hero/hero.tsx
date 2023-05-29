@@ -1,7 +1,8 @@
+"use client";
+
 import React from "react";
 import TypingText from "./typingText";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
 import {
   faCodepen,
   faGithub,
@@ -9,12 +10,45 @@ import {
   faLinkedinIn,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { motion } from "framer-motion";
 
 export default function Hero() {
+  const containerVariants = {
+    hidden: { opacity: 0, x: -100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+        duration: 1.5,
+        delay: 0,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -100 },
+    visible: (custom: any) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: custom * 0.1,
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+      },
+    }),
+  };
+
   return (
-    <section
+    <motion.section
       id="home"
       className="flex flex-col md:justify-between mb-16 md:mb-0 h-full"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
     >
       <div className="flex flex-col md:gap-y-24">
         {/* Name */}
@@ -31,13 +65,15 @@ export default function Hero() {
         {/* Nav */}
         <div className="md:flex flex-col gap-y-6 text-sm header-nav duration-300 hidden">
           {navItems.map((item, index: number) => (
-            <a
+            <motion.a
               key={index}
               href={item.href}
               className={`text-[var(--slate)] hover:text-[var(--lightest-slate)] uppercase mr-auto`}
+              custom={index}
+              variants={itemVariants}
             >
               {item.name}
-            </a>
+            </motion.a>
           ))}
         </div>
       </div>
@@ -45,15 +81,21 @@ export default function Hero() {
       {/* Socials */}
       <div className="flex flex-row gap-x-6 my-6 md:mb-0 md:mt-auto">
         {socials.map((social, index) => (
-          <Link key={index} href={social.href} target="_blank">
+          <motion.a
+            key={index}
+            href={social.href}
+            target="_blank"
+            custom={index}
+            variants={itemVariants}
+          >
             <FontAwesomeIcon
               icon={social.icon}
               className="h-[25px] hover:text-[var(--green-bright)] duration-300 hover:translate-y-[-4px]"
             />
-          </Link>
+          </motion.a>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
 

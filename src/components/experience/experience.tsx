@@ -1,18 +1,68 @@
+"use client";
+
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faLink } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
 
 export default function Experience() {
+  const containerVariants = {
+    hidden: { opacity: 0, x: 100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+        duration: 1.5,
+        delay: 0,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: 100 },
+    visible: (custom: any) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: custom * 0.2,
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+      },
+    }),
+  };
+
   return (
-    <section id="experience" className="flex flex-col">
-      <h1 className="text-xl font-semibold text-[var(--lightest-slate)] md:hidden">
+    <motion.section
+      id="experience"
+      className="flex flex-col"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.h1
+        className="text-xl font-semibold text-[var(--lightest-slate)] md:hidden"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         Experience
-      </h1>
-      <div className="flex flex-col gap-y-8">
+      </motion.h1>
+      <motion.div
+        className="flex flex-col gap-y-8"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {experience.map((experience: ExperienceModel, index: number) => (
-          <div
+          <motion.div
             key={index}
             className="flex flex-col md:flex-row gap-x-4 justify-start align-top item-hover"
+            custom={index}
+            variants={itemVariants}
           >
             <div className="text-[var(--slate)] text-xs uppercase flex-initial w-32 leading-6">
               <p className="my-1">{experience.dates}</p>
@@ -67,10 +117,10 @@ export default function Experience() {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
 

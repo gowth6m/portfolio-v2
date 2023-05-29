@@ -1,19 +1,70 @@
+"use client";
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import { faArrowRight, faFolder } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
 
 export default function Projects() {
+  const containerVariants = {
+    hidden: { opacity: 0, x: 100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+        duration: 1.5,
+        delay: 0,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: 100 },
+    visible: (custom: any) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: custom * 0.2,
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+      },
+    }),
+  };
+
   return (
-    <section id="projects" className="container flex flex-col min-h-[100vh]">
-      <h1 className="text-xl font-semibold text-[var(--lightest-slate)] md:hidden py-2 md:py-0">
+    <motion.section
+      id="projects"
+      className="container flex flex-col min-h-[100vh]"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.h1
+        className="text-xl font-semibold text-[var(--lightest-slate)] md:hidden py-2 md:py-0"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         Portfolio
-      </h1>
-      <div className="flex flex-col gap-y-8">
+      </motion.h1>
+      <motion.div
+        className="flex flex-col gap-y-8"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {projects.map((project, index) => (
-          <div key={index} className="flex flex-col md:flex-row gap-x-4">
+          <motion.div
+            key={index}
+            className="flex flex-col md:flex-row gap-x-4"
+            custom={index}
+            variants={itemVariants}
+          >
             <div className="flex-initial w-4/6 md:w-32 order-2 md:order-1 my-4 md:my-0">
               <div className="pr-2 mt-1">
                 <img
@@ -26,7 +77,9 @@ export default function Projects() {
             <div className="flex flex-col gap-y-2 flex-1 order-1 md:order-2">
               <h2 className="text-[var(--lightest-slate)] text-lg font-bold group">
                 <div className="text-[var(--lightest-slate)] group-hover:text-[var(--green-bright)] duration-150">
-                  {project.title}
+                  <a href={project.link ? project.link : project.github} target="_blank">
+                    {project.title}
+                  </a>
                   {project.link && (
                     <a href={project.link} target="_blank">
                       <FontAwesomeIcon
@@ -61,10 +114,10 @@ export default function Projects() {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
 
