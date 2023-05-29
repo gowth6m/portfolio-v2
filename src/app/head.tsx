@@ -28,7 +28,7 @@ export default function Head() {
       <link rel="icon" href="logo/logo.svg" />
       <link rel="icon" href="logo/logo.svg" type="image/svg+xml" />
       <link rel="apple-touch-icon" href="logo/logo.png" />
-      <meta name="theme-color" content="#8892b014" />
+      <meta name="theme-color" content="#0a192f" />
 
       <title>Gowtham</title>
 

@@ -13,7 +13,7 @@ export default function Contact() {
         in touch!{" "}
         <a
           href="mailto:contact@gowtham.co.uk"
-          className="text-[var(--green-bright)] group"
+          className="text-[var(--green-bright)] group md:px-1"
         >
           <br className="md:hidden" />
           <br className="md:hidden" />
