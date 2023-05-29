@@ -15,8 +15,8 @@ export default function Experience() {
         type: "spring",
         stiffness: 100,
         damping: 10,
-        duration: 1.5,
-        delay: 0,
+        duration: 2,
+        delay: 0.1,
       },
     },
   };

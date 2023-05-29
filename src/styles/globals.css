@@ -206,7 +206,7 @@ body {
   border-radius: 50%;
   background: linear-gradient(to right,#a166ed,#5777ff);
   animation: rotate 20s infinite;
-  z-index: -2;
+  z-index: -3;
 }
 
 .backDropper {
@@ -241,4 +241,18 @@ body {
   outline: none;  
   border: 2px dashed var(--green-bright);
   border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  /* background: var(--green-bright); */
+  background: var(--green-tint);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--navy);
 }

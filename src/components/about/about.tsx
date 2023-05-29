@@ -13,7 +13,7 @@ export default function About() {
         type: "spring", // adds a bouncing effect
         stiffness: 100, // controls the stiffness of the spring, increase for more energy
         damping: 10, // controls the friction, increase for less bounce
-        duration: 1.5,
+        duration: 2,
         delay: 0,
       },
     },

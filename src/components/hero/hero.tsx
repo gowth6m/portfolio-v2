@@ -22,8 +22,23 @@ export default function Hero() {
         type: "spring",
         stiffness: 100,
         damping: 10,
-        duration: 1.5,
+        duration: 2,
         delay: 0,
+      },
+    },
+  };
+
+  const containerVariantsDelayed = {
+    hidden: { opacity: 0, x: -100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+        duration: 2,
+        delay: 0.2,
       },
     },
   };
@@ -79,7 +94,12 @@ export default function Hero() {
       </div>
 
       {/* Socials */}
-      <div className="flex flex-row gap-x-6 my-6 md:mb-0 md:mt-auto">
+      <motion.div
+        className="flex flex-row gap-x-6 my-6 md:mb-0 md:mt-auto"
+        variants={containerVariantsDelayed}
+        initial="hidden"
+        animate="visible"
+      >
         {socials.map((social, index) => (
           <motion.a
             key={index}
@@ -94,7 +114,7 @@ export default function Hero() {
             />
           </motion.a>
         ))}
-      </div>
+      </motion.div>
     </motion.section>
   );
 }

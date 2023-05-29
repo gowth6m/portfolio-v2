@@ -16,7 +16,7 @@ export default function Projects() {
         type: "spring",
         stiffness: 100,
         damping: 10,
-        duration: 1.5,
+        duration: 2,
         delay: 0,
       },
     },
@@ -77,7 +77,10 @@ export default function Projects() {
             <div className="flex flex-col gap-y-2 flex-1 order-1 md:order-2">
               <h2 className="text-[var(--lightest-slate)] text-lg font-bold group">
                 <div className="text-[var(--lightest-slate)] group-hover:text-[var(--green-bright)] duration-150">
-                  <a href={project.link ? project.link : project.github} target="_blank">
+                  <a
+                    href={project.link ? project.link : project.github}
+                    target="_blank"
+                  >
                     {project.title}
                   </a>
                   {project.link && (
