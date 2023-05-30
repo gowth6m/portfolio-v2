@@ -6,35 +6,6 @@ import { faArrowRight, faLink } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 
 export default function Experience() {
-  const containerVariants = {
-    hidden: { opacity: 0, x: 100 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-        duration: 2,
-        delay: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: 100 },
-    visible: (custom: any) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        delay: custom * 0.2,
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-      },
-    }),
-  };
-
   return (
     <motion.section
       id="experience"
@@ -237,3 +208,32 @@ const experience: ExperienceModel[] = [
     ],
   },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0, x: 100 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 10,
+      duration: 2,
+      delay: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: 100 },
+  visible: (custom: any) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: custom * 0.2,
+      type: "spring",
+      stiffness: 100,
+      damping: 10,
+    },
+  }),
+};

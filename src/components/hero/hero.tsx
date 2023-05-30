@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { RefObject, useEffect, useState } from "react";
 import TypingText from "./typingText";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,51 +11,45 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
+import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 
-export default function Hero() {
-  const containerVariants = {
-    hidden: { opacity: 0, x: -100 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-        duration: 2,
-        delay: 0,
-      },
-    },
-  };
+interface HeroProps {
+  refAbout: RefObject<HTMLDivElement>;
+  refExperience: RefObject<HTMLDivElement>;
+  refProjects: RefObject<HTMLDivElement>;
+  refContact: RefObject<HTMLDivElement>;
+}
 
-  const containerVariantsDelayed = {
-    hidden: { opacity: 0, x: -100 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-        duration: 2,
-        delay: 0.2,
-      },
-    },
-  };
+export default function Hero({
+  refAbout,
+  refExperience,
+  refProjects,
+  refContact,
+}: HeroProps) {
+  const [activeSection, setActiveSection] = useState("about");
 
-  const itemVariants = {
-    hidden: { opacity: 0, x: -100 },
-    visible: (custom: any) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        delay: custom * 0.1,
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-      },
-    }),
-  };
+  const isAboutVisible = useIntersectionObserver(refAbout, { threshold: 0 });
+  const isExperienceVisible = useIntersectionObserver(refExperience, {
+    threshold: 0.5,
+  });
+  const isProjectsVisible = useIntersectionObserver(refProjects, {
+    threshold: 0.1,
+  });
+  const isContactVisible = useIntersectionObserver(refContact, {
+    threshold: 0.1,
+  });
+
+  useEffect(() => {
+    if (isAboutVisible) setActiveSection("about");
+    if (isExperienceVisible) setActiveSection("experience");
+    if (isProjectsVisible) setActiveSection("projects");
+    if (isContactVisible) setActiveSection("contact");
+  }, [
+    isAboutVisible,
+    isExperienceVisible,
+    isProjectsVisible,
+    isContactVisible,
+  ]);
 
   return (
     <motion.section
@@ -83,7 +77,11 @@ export default function Hero() {
             <motion.a
               key={index}
               href={item.href}
-              className={`text-[var(--slate)] hover:text-[var(--lightest-slate)] uppercase mr-auto`}
+              className={`hover:text-[var(--lightest-slate)] tracking-wider mr-auto ${
+                activeSection === item.name
+                  ? "text-[var(--lightest-slate)] header-nav-current"
+                  : "text-[var(--dark-slate)]"
+              }`}
               custom={index}
               variants={itemVariants}
             >
@@ -150,7 +148,7 @@ const socials = [
 const navItems = [
   {
     name: "about",
-    href: "#aboutme",
+    href: "#about",
   },
   {
     name: "experience",
@@ -165,3 +163,47 @@ const navItems = [
     href: "#contact",
   },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0, x: -100 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 10,
+      duration: 2,
+      delay: 0,
+    },
+  },
+};
+
+const containerVariantsDelayed = {
+  hidden: { opacity: 0, x: -100 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 10,
+      duration: 2,
+      delay: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -100 },
+  visible: (custom: any) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: custom * 0.1,
+      type: "spring",
+      stiffness: 100,
+      damping: 10,
+    },
+  }),
+};

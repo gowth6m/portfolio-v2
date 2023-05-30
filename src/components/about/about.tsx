@@ -4,24 +4,9 @@ import { motion } from "framer-motion";
 import React from "react";
 
 export default function About() {
-  const containerVariants = {
-    hidden: { opacity: 0, x: 100 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring", // adds a bouncing effect
-        stiffness: 100, // controls the stiffness of the spring, increase for more energy
-        damping: 10, // controls the friction, increase for less bounce
-        duration: 2,
-        delay: 0,
-      },
-    },
-  };
-
   return (
     <motion.section
-      id="aboutme"
+      id="about"
       className="container flex flex-col min-h-fit"
       variants={containerVariants}
       initial="hidden"
@@ -70,3 +55,18 @@ export default function About() {
     </motion.section>
   );
 }
+
+const containerVariants = {
+  hidden: { opacity: 0, x: 100 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring", // adds a bouncing effect
+      stiffness: 100, // controls the stiffness of the spring, increase for more energy
+      damping: 10, // controls the friction, increase for less bounce
+      duration: 2,
+      delay: 0,
+    },
+  },
+};
