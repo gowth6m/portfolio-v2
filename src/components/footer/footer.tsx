@@ -101,11 +101,11 @@ const oldPages = [
   {
     title: "Version 0 (2019)",
     version: "v0",
-    image: "./images/v0.png",
+    image: "./images/v0.webp",
   },
   {
     title: "Version 1 (2022)",
     version: "v1",
-    image: "./images/v1.png",
+    image: "./images/v1.webp",
   },
 ];
