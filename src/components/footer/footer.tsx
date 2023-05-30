@@ -22,6 +22,7 @@ export default function Footer() {
     <div id="footer" className="flex flex-row">
       <Contact />
       <button
+        aria-label="Old versions of the website"
         onClick={togglePopup}
         className="cursor-pointer group hover:text-[var(--green-bright)]"
       >
@@ -62,7 +63,11 @@ const Popup: React.FC<PopupProps> = ({ closePopup }) => {
       >
         <div className="flex flex-col">
           <div className="flex flex-row justify-end">
-            <button onClick={closePopup} className="group">
+            <button
+              onClick={closePopup}
+              className="group"
+              aria-label="Close popup"
+            >
               <FontAwesomeIcon
                 icon={faClose}
                 className="inline h-[18px] duration-150 bg-[var(--lightest-navy)] group-hover:text-[var(--green-bright)] px-2"

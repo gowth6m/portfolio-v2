@@ -55,7 +55,7 @@ export default function Projects() {
                     {project.title}
                   </a>
                   {project.link && (
-                    <a href={project.link} target="_blank">
+                    <a href={project.link} target="_blank" aria-label="open working live project">
                       <FontAwesomeIcon
                         icon={faExternalLinkAlt}
                         className="inline h-[16px] hover:text-[var(--green-bright)] pl-4 pr-2 duration-150"
@@ -64,7 +64,7 @@ export default function Projects() {
                     </a>
                   )}
                   {project.github && (
-                    <a href={project.github} target="_blank">
+                    <a href={project.github} target="_blank" aria-label="open project on GitHub">
                       <FontAwesomeIcon
                         icon={faGithub}
                         className="inline h-[16px] hover:text-[var(--green-bright)] px-2 duration-150"

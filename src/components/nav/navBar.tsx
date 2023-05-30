@@ -24,19 +24,19 @@ export default function NavBar() {
     return () => window.removeEventListener("scroll", handleScroll);
   });
 
- useEffect(() => {
-  if (menuOpened) {
-    document.body.style.overflow = 'hidden';
-    document.body.style.height = '100%';
-    document.documentElement.style.overflow = 'hidden';
-    document.documentElement.style.height = '100%';
-  } else {
-    document.body.style.overflow = 'unset';
-    document.body.style.height = 'unset';
-    document.documentElement.style.overflow = 'unset';
-    document.documentElement.style.height = 'unset';
-  }
-}, [menuOpened]);
+  useEffect(() => {
+    if (menuOpened) {
+      document.body.style.overflow = "hidden";
+      document.body.style.height = "100%";
+      document.documentElement.style.overflow = "hidden";
+      document.documentElement.style.height = "100%";
+    } else {
+      document.body.style.overflow = "unset";
+      document.body.style.height = "unset";
+      document.documentElement.style.overflow = "unset";
+      document.documentElement.style.height = "unset";
+    }
+  }, [menuOpened]);
 
   const menuList = [
     { id: "01", name: "home", href: "#home" },
@@ -49,7 +49,11 @@ export default function NavBar() {
   return visible ? (
     <div className="fixed w-full origin-top">
       <nav className="mx-auto flex flex-row justify-between align-middle md:mt-8 md:px-10 mt-4 px-4">
-        <a href="#home" className="text-sm z-40">
+        <a
+          href="#home"
+          className="text-sm z-40"
+          aria-label="go to home section"
+        >
           <Logo
             color="var(--green-bright)"
             className="h-[40px] w-[40px] justify-start"
@@ -64,8 +68,10 @@ export default function NavBar() {
               key={item.id}
               className="hover:text-[var(--green-bright)] duration-300 hover:translate-y-[-2px]"
             >
-              <a href={item.href}>
-                <span className="py-4 text-[var(--green-bright)]">{item.id}. </span>{" "}
+              <a href={item.href} aria-label="go to menu item">
+                <span className="py-4 text-[var(--green-bright)]">
+                  {item.id}.{" "}
+                </span>{" "}
                 {item.name}
               </a>
             </li>
@@ -104,6 +110,7 @@ export default function NavBar() {
 const AnimatedButton = ({ menuOpened, setMenuOpened }: any) => {
   return (
     <button
+      aria-label="Navigation menu"
       className={`hamburger hamburger--collapse ${menuOpened && "is-active"}`}
       type="button"
       onClick={() => setMenuOpened(!menuOpened)}
