@@ -129,6 +129,16 @@ const projects: ProjectModel[] = [
     stack: ["Haskell"],
     display: false,
   },
+  {
+    year: 2023,
+    title: "Solar System",
+    description: "A 3D model of the solar system (3 Planets) built with Three.js. This project was created to learn Three.js.",
+    image: "./images/solar.webp",
+    github: "https://github.com/gowth6m/solar-system",
+    link: "https://gowth6m.github.io/solar-system/",
+    stack: ["Three.js", "JavaScript", "HTML", "CSS", "React", "TypeScript", "Next.js", "Tailwind"],
+    display: false,
+  }
 ];
 
 export { projects };

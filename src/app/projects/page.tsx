@@ -43,18 +43,18 @@ interface ProjectItemProps {
 
 const ProjectItem: React.FC<ProjectItemProps> = ({ project, index }) => {
   return (
-    <motion.div variants={itemVariants} custom={index}>
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-9 my-2 gap-x-2 overflow-x-hidden">
+    <motion.div variants={itemVariants} custom={index} className="overflow-hidden">
+      <div className="grid grid-cols-5 md:grid-cols-9 my-2 gap-x-2 overflow-x-hidden overflow-hidden">
         {/* Year */}
-        <div className="lg:col-span-1">{project.year}</div>
+        <div className="md:col-span-1 hidden md:flex">{project.year}</div>
 
         {/* Project Name */}
-        <div className="lg:col-span-2 text-[var(--lightest-slate)]">
+        <div className="md:col-span-2 col-span-3 text-[var(--lightest-slate)] mr-4 md:mx-0">
           {project.title}
         </div>
 
         {/* Tech Stack */}
-        <div className="lg:col-span-4 flex-wrap gap-2 p-2 hidden lg:flex">
+        <div className="md:col-span-4 flex-wrap gap-2 p-2 hidden md:flex">
           {project.stack.map((tech: string, index: number) => (
             <span
               key={index}
@@ -69,7 +69,8 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project, index }) => {
         {project.link !== undefined ? (
           <Link
             href={project.link}
-            className="lg:col-span-1 group hover:text-[var(--green-bright)]"
+            className="md:col-span-1 col-span-1 group hover:text-[var(--green-bright)]"
+            target="_blank"
           >
             View
             <FontAwesomeIcon
@@ -78,23 +79,24 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project, index }) => {
             />
           </Link>
         ) : (
-          <div className="lg:col-span-1"></div>
+          <div className="md:col-span-1"></div>
         )}
 
         {/* GitHub */}
         {project.github !== undefined ? (
           <Link
             href={project.github}
-            className="lg:col-span-1 group hover:text-[var(--green-bright)]"
+            className="md:col-span-1 col-span-1 group hover:text-[var(--green-bright)]"
+            target="_blank"
           >
             GitHub
             <FontAwesomeIcon
               icon={faArrowRight}
-              className="inline px-1 h-[12px]  text-[var(--slate)] group-hover:text-[var(--green-bright)] duration-150 -rotate-45 group-hover:translate-x-[4px] group-hover:translate-y-[-4px]"
+              className="md:inline hidden px-1 h-[12px]  text-[var(--slate)] group-hover:text-[var(--green-bright)] duration-150 -rotate-45 group-hover:translate-x-[4px] group-hover:translate-y-[-4px]"
             />
           </Link>
         ) : (
-          <div className="lg:col-span-1"></div>
+          <div className="md:col-span-1"></div>
         )}
       </div>
       <div className="w-full border-b-[0.5px] border-[var(--lightest-navy)]"></div>
