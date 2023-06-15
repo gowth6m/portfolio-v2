@@ -11,6 +11,25 @@ type ProjectModel = {
 
 const projects: ProjectModel[] = [
   {
+    year: 2023,
+    title: "NightBloom AI",
+    description:
+      "Search engine that locates AI-generated images. Allows users to filter, view, download and favourite images AI-generated images from varying resolutions and quality.",
+    image: "./images/nightbloom.webp",
+    link: "http://nightbloom.ai",
+    stack: [
+      "Next.js",
+      "React",
+      "Framer Motion",
+      "Material UI",
+      "AWS Services",
+      "Node.js",
+      "TypeScript",
+      "DynamoDB",
+    ],
+    display: true,
+  },
+  {
     year: 2022,
     title: "University of Exeter App",
     description:
@@ -132,13 +151,23 @@ const projects: ProjectModel[] = [
   {
     year: 2023,
     title: "Solar System",
-    description: "A 3D model of the solar system (3 Planets) built with Three.js. This project was created to learn Three.js.",
+    description:
+      "A 3D model of the solar system (3 Planets) built with Three.js. This project was created to learn Three.js.",
     image: "./images/solar.webp",
     github: "https://github.com/gowth6m/solar-system",
     link: "https://gowth6m.github.io/solar-system/",
-    stack: ["Three.js", "JavaScript", "HTML", "CSS", "React", "TypeScript", "Next.js", "Tailwind"],
+    stack: [
+      "Three.js",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Tailwind",
+    ],
     display: false,
-  }
+  },
 ];
 
 export { projects };

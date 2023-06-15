@@ -15,11 +15,31 @@ type ExperienceModel = {
 const experience: ExperienceModel[] = [
   {
     role: "Frontend Developer",
+    company: "Pollen Technologies",
+    link: "https://www.pollentechnologies.com/",
+    dates: "Jun 2023 - Present",
+    description:
+      "Offer modern banking for businesses by taking lead on frontend development at Pollen Technologies. Create software for both external clients and internal use at Pollen Technologies.",
+    descriptions: [],
+    technologies: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "TypeScript",
+      "Golang",
+      "AWS Services",
+      "Material UI",
+      "Java",
+    ],
+    projects: [],
+  },
+  {
+    role: "Frontend Developer",
     company: "HIVED",
     link: "https://hived.space",
-    dates: "Feb 2023 - Present",
+    dates: "Feb 2023 - Jun 2023",
     description:
-      "Lead frontend development and create frontend solutions for a variety of microservices used by HIVED. Create applications used by around 20,000 customers daily and in-house apps used by our drivers and staff.",
+      "Lead frontend development at HIVED. Create frontend solutions for a variety of microservices used by HIVED. Create applications used by around 20,000 customers daily and in-house apps used by our drivers and staff.",
     descriptions: [
       "Lead frontend development at HIVED",
       "Create and implement solutions for a variety of microservices used by HIVED",
@@ -66,7 +86,7 @@ const experience: ExperienceModel[] = [
     projects: [
       {
         title: "Student App",
-        link: "https:/m.exeter.ac.uk",
+        link: "https://m.exeter.ac.uk",
       },
     ],
   },
