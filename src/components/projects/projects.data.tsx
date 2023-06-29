@@ -14,7 +14,7 @@ const projects: ProjectModel[] = [
     year: 2023,
     title: "NightBloom AI",
     description:
-      "Search engine that locates AI-generated images. Allows users to filter, view, download and favourite images AI-generated images from varying resolutions and quality.",
+      "Search engine that locates AI-generated images. Allows users to filter, view, download and favourite AI-generated images from varying resolutions and quality.",
     image: "./images/nightbloom.webp",
     link: "https://nightbloom.ai",
     stack: [

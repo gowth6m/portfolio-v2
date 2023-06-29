@@ -26,7 +26,7 @@ const experience: ExperienceModel[] = [
       "Next.js",
       "Node.js",
       "TypeScript",
-      "Golang",
+      "Spring",
       "AWS Services",
       "Material UI",
       "Java",
