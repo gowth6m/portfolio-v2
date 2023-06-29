@@ -66,7 +66,7 @@ export default function Hero({
             Gowtham Ravindrathas
           </h1>
           <h2 className="text-[var(--lightest-slate)]">
-            Software Engineer at Pollen Technologies
+            Software Engineer at HIVED
           </h2>
           <TypingText className="text-base" />
         </div>
