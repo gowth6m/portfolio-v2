@@ -38,13 +38,11 @@ export default function About() {
         . My current role involves leading frontend development, building robust
         and innovative software solutions for{" "}
         <a
-          // href="https://www.pollentechnologies.com/"
-          href="https://www.hived.space"
+          href="https://www.pollentechnologies.com/"
           target="_blank"
           className="text-[var(--green-bright)] hover:text-[var(--lightest-slate)"
         >
-          {/* Pollen Technologies */}
-          HIVED
+          Pollen Technologies
         </a>{" "}
         - from intuitive customer landing pages, sophisticated internal
         dashboards and other tools to help the business grow.
