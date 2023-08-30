@@ -16,7 +16,7 @@ const projects: ProjectModel[] = [
     description:
       "Search engine that locates AI-generated images. Allows users to filter, view, download and favourite AI-generated images from varying resolutions and quality.",
     image: "./images/nightbloom.webp",
-    link: "https://nightbloomai.github.io/frontend/",
+    link: "https://nightbloom.ai",
     stack: [
       "Next.js",
       "React",
