@@ -33,7 +33,7 @@ const projects: ProjectModel[] = [
         year: 2023,
         title: "Neuraliser",
         description:
-            "Application for visualising neural networks as graphs. Allows you to upload JSON files with neural network data then visualise, edit and export nerural networks.",
+            "Application for visualising neural networks as directed graphs. Allows you to upload JSON files with data about layers, nodes and edges of the neural network then visualise, edit and export the updated neural network.",
         image: "./images/neuraliser.webp",
         link: "https://gowth6m.github.io/neuraliser",
         github: "https://github.com/gowth6m/neuraliser",
