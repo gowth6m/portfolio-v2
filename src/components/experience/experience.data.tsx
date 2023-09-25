@@ -53,6 +53,7 @@ const experience: ExperienceModel[] = [
       "TypeScript",
       "Golang",
       "AWS Services",
+      "Grafana Faro",
     ],
     projects: [
       {
