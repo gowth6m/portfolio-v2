@@ -17,7 +17,7 @@ const experience: ExperienceModel[] = [
     role: "Frontend Developer",
     company: "Pollen Technologies",
     link: "https://www.pollentechnologies.com/",
-    dates: "Jun 2023 - Present",
+    dates: "Jul 2023 - Present",
     description:
       "Offer modern banking for businesses by taking lead on frontend development at Pollen Technologies. Create software for both external clients and internal use at Pollen Technologies.",
     descriptions: [],
@@ -37,7 +37,7 @@ const experience: ExperienceModel[] = [
     role: "Frontend Developer",
     company: "HIVED",
     link: "https://hived.space",
-    dates: "Feb 2023 - Jun 2023",
+    dates: "Jan 2023 - Jul 2023",
     description:
       "Lead frontend development at HIVED. Create frontend solutions for a variety of microservices used by HIVED. Create applications used by around 20,000 customers daily and in-house apps used by our drivers and staff.",
     descriptions: [
@@ -66,7 +66,7 @@ const experience: ExperienceModel[] = [
     role: "Software Engineer",
     company: "University of Exeter",
     link: "https://www.exeter.ac.uk/",
-    dates: "May 2022 - Feb 2023",
+    dates: "Mar 2022 - Jan 2023",
     description:
       "Work on the University of Exeter app that is used by around 22,000 students, create chatbot API microservice used in various applications, create virtual tour app to help students navigate campus and work on online programes website.",
     descriptions: [
