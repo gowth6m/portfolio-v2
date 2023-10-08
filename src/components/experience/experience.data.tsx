@@ -68,7 +68,7 @@ const experience: ExperienceModel[] = [
     link: "https://www.exeter.ac.uk/",
     dates: "Mar 2022 - Jan 2023",
     description:
-      "Work on the University of Exeter app that is used by around 22,000 students, create chatbot API microservice used in various applications, create virtual tour app to help students navigate campus and work on online programes website.",
+      "Work on the University of Exeter app that is used by around 22,000 students, create chatbot API microservice used in various applications, create virtual tour app to help students navigate campus and work on online programmes website.",
     descriptions: [
       "Work on the University of Exeter app that is used by around 22,000 students",
       "Create chatbot API microservice used in various applications",
