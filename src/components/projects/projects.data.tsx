@@ -49,6 +49,27 @@ const projects: ProjectModel[] = [
         display: true,
     },
     {
+        year: 2023,
+        title: "Orsay AI",
+        description: "Personal AI to book more calls than sales team.",
+        image: "./images/orsay.png",
+        link: "https://app.orsay.ai",
+        stack: [
+            "Next.js",
+            "React",
+            "MUI",
+            "Node.js",
+            "TypeScript",
+            "Zustand",
+            "React Query",
+            "AWS Services",
+            "FastAPI",
+            "Python",
+            "LLM",
+        ],
+        display: true,
+    },
+    {
         year: 2022,
         title: "University of Exeter App",
         description:

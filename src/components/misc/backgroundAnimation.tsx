@@ -7,101 +7,115 @@ const SPEED_MAX = 0.6;
 const SPEED_MIN = 0.05;
 const SIZE = 2;
 
-export default function BackgroundAnimation({
-  color,
-}: BackgroundAnimationProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const boxColor = useMemo(() => color ?? "white", [color]);
-
-  const [windowSize, setWindowSize] = useState({
-    innerWidth: 0,
-    innerHeight: 0,
-  });
-
-  // Function to handle window resize
-  const handleResize = useCallback(() => {
-    setWindowSize({
-      innerWidth: window.innerWidth,
-      innerHeight: window.innerHeight,
-    });
-  }, []);
-
-  useEffect(() => {
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [handleResize]);
-
-  useEffect(() => {
-    if (!canvasRef.current) return;
-    const c = canvasRef.current.getContext("2d");
-    if (!c) return;
-
-    // Generate boxes based on screen size (mobile or desktop)
-    const boxes = makeBoxes(
-      windowSize.innerWidth > SCREEN_SIZE_LIMIT ? 100 : 20,
-      windowSize
-    );
-
-    // Draw boxes
-    const draw = () => {
-      c.clearRect(0, 0, windowSize.innerWidth, windowSize.innerHeight);
-
-      for (const box of boxes) {
-        c.fillStyle = boxColor;
-        c.fillRect(box.x, box.y, box.size, box.size);
-
-        box.y += box.vy;
-
-        if (box.y < 0) {
-          box.y = windowSize.innerHeight;
-          box.vy = -(Math.random() * SPEED_MAX + SPEED_MIN);
-          box.size = Math.random() * SIZE;
-        }
-      }
-
-      // Loop
-      animationFrameId = requestAnimationFrame(draw);
-    };
-
-    let animationFrameId = requestAnimationFrame(draw);
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, [boxColor, windowSize, handleResize]);
-
-  return (
-    <canvas
-      id="homeCanvas"
-      className="w-full h-full fixed top-0 left-0 z-[-1]"
-      ref={canvasRef}
-      width={windowSize.innerWidth}
-      height={windowSize.innerHeight}
-    ></canvas>
-  );
-}
-
-// Function to generate boxes
-const makeBoxes = (count: number, windowSize: WindowSize) => {
-  const boxes = [];
-  for (let i = 0; i < count; i++) {
-    const box = {
-      x: Math.random() * windowSize.innerWidth,
-      y: Math.random() * windowSize.innerHeight,
-      vy: -(Math.random() * SPEED_MAX + SPEED_MIN),
-      size: Math.random() * SIZE,
-    };
-    boxes.push(box);
-  }
-  return boxes;
-};
-
 interface BackgroundAnimationProps {
-  color?: string | null;
+    color?: string | null;
 }
 
 interface WindowSize {
-  innerWidth: number;
-  innerHeight: number;
+    innerWidth: number;
+    innerHeight: number;
 }
+
+interface Box {
+    x: number;
+    y: number;
+    vy: number;
+    size: number;
+}
+
+export default function BackgroundAnimation({
+    color,
+}: BackgroundAnimationProps) {
+    const canvasRef = useRef<HTMLCanvasElement | null>(null);
+    const boxColor = useMemo(() => color ?? "white", [color]);
+
+    const [windowSize, setWindowSize] = useState<WindowSize>({
+        innerWidth: 0,
+        innerHeight: 0,
+    });
+
+    const handleResize = useCallback(() => {
+        setWindowSize({
+            innerWidth: window.innerWidth,
+            innerHeight: window.innerHeight,
+        });
+    }, []);
+
+    useEffect(() => {
+        handleResize();
+        const debounceResize = debounce(handleResize, 100);
+        window.addEventListener("resize", debounceResize);
+        return () => window.removeEventListener("resize", debounceResize);
+    }, [handleResize]);
+
+    useEffect(() => {
+        if (!canvasRef.current) return;
+        const canvas = canvasRef.current;
+        const c = canvas.getContext("2d");
+        if (!c) return;
+
+        let animationFrameId: number;
+
+        const boxes = makeBoxes(
+            windowSize.innerWidth > SCREEN_SIZE_LIMIT ? 100 : 20,
+            windowSize
+        );
+
+        const draw = () => {
+            c.clearRect(0, 0, windowSize.innerWidth, windowSize.innerHeight);
+
+            for (const box of boxes) {
+                c.fillStyle = boxColor;
+                c.fillRect(box.x, box.y, box.size, box.size);
+
+                box.y += box.vy;
+
+                if (box.y < 0) {
+                    box.y = windowSize.innerHeight;
+                    box.vy = -(Math.random() * SPEED_MAX + SPEED_MIN);
+                    box.size = Math.random() * SIZE;
+                }
+            }
+
+            animationFrameId = requestAnimationFrame(draw);
+        };
+
+        animationFrameId = requestAnimationFrame(draw);
+
+        return () => {
+            cancelAnimationFrame(animationFrameId);
+        };
+    }, [boxColor, windowSize]);
+
+    return (
+        <canvas
+            id="homeCanvas"
+            className="w-full h-full fixed top-0 left-0 z-[-1]"
+            ref={canvasRef}
+            width={windowSize.innerWidth}
+            height={windowSize.innerHeight}
+        ></canvas>
+    );
+}
+
+const makeBoxes = (count: number, windowSize: WindowSize): Box[] => {
+    const boxes: Box[] = [];
+    for (let i = 0; i < count; i++) {
+        const box: Box = {
+            x: Math.random() * windowSize.innerWidth,
+            y: Math.random() * windowSize.innerHeight,
+            vy: -(Math.random() * SPEED_MAX + SPEED_MIN),
+            size: Math.random() * SIZE,
+        };
+        boxes.push(box);
+    }
+    return boxes;
+};
+
+const debounce = (func: (...args: any[]) => void, wait: number) => {
+    let timeout: ReturnType<typeof setTimeout>;
+    return (...args: any[]) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+};

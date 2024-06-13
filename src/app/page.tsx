@@ -8,48 +8,53 @@ import Hero from "@/components/hero/hero";
 import Projects from "@/components/projects/projects";
 
 const Home: React.FC = () => {
-  const { refAbout, refExperience, refProjects, refContact } = useRefHandlers();
+    const { refAbout, refExperience, refProjects, refContact } =
+        useRefHandlers();
 
-  return (
-    <main className="md:h-screen w-full z-10">
-      <div className="container mx-auto flex flex-col md:flex-row gap-2 md:min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-24 lg:px-24">
-        {/* Left */}
-        <div className="text-xl md:sticky md:self-start md:top-24 md:bottom-24 md:w-1/2 md:h-[calc(100vh-12rem)]">
-          <Hero
-            refAbout={refAbout}
-            refExperience={refExperience}
-            refProjects={refProjects}
-            refContact={refContact}
-          />
-        </div>
+    return (
+        <main className="md:h-screen w-full z-10">
+            <div className="container mx-auto flex flex-col md:flex-row gap-2 md:min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-24 lg:px-24">
+                {/* Left */}
+                <div className="text-xl md:sticky md:self-start md:top-24 md:bottom-24 md:w-1/2 md:h-[calc(100vh-12rem)]">
+                    <Hero
+                        refAbout={refAbout}
+                        refExperience={refExperience}
+                        refProjects={refProjects}
+                        refContact={refContact}
+                    />
+                </div>
 
-        {/* Right */}
-        <div className="md:w-1/2 md:ml-auto flex flex-col gap-y-20 md:gap-y-28">
-          <div id="About" ref={refAbout}>
-            <About />
-          </div>
-          <div id="Experience" ref={refExperience}>
-            <Experience />
-          </div>
-          <div id="Projects" ref={refProjects}>
-            <Projects />
-          </div>
-          <div ref={refContact}>
-            <Footer />
-          </div>
-        </div>
-      </div>
-    </main>
-  );
+                {/* Right */}
+                <div className="md:w-1/2 md:ml-auto flex flex-col gap-y-20 md:gap-y-28">
+                    <div id="About" ref={refAbout} className={"anchor"}>
+                        <About />
+                    </div>
+                    <div
+                        id="Experience"
+                        ref={refExperience}
+                        className={"anchor"}
+                    >
+                        <Experience />
+                    </div>
+                    <div id="Projects" ref={refProjects} className={"anchor"}>
+                        <Projects />
+                    </div>
+                    <div ref={refContact} className={"anchor"}>
+                        <Footer />
+                    </div>
+                </div>
+            </div>
+        </main>
+    );
 };
 
 const useRefHandlers = () => {
-  const refAbout = useRef<HTMLDivElement>(null);
-  const refExperience = useRef<HTMLDivElement>(null);
-  const refProjects = useRef<HTMLDivElement>(null);
-  const refContact = useRef<HTMLDivElement>(null);
+    const refAbout = useRef<HTMLDivElement>(null);
+    const refExperience = useRef<HTMLDivElement>(null);
+    const refProjects = useRef<HTMLDivElement>(null);
+    const refContact = useRef<HTMLDivElement>(null);
 
-  return { refAbout, refExperience, refProjects, refContact };
+    return { refAbout, refExperience, refProjects, refContact };
 };
 
 export default Home;
