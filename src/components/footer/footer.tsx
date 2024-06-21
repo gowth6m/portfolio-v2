@@ -29,7 +29,7 @@ export default function Footer() {
         <FontAwesomeIcon
           icon={faShuttleSpace}
           className="inline h-[40px] hover:text-[var(--green-bright)] px-4 duration-150 -rotate-45 group-hover:translate-y-[-4px] group-hover:translate-x-[4px] group-hover:text-[var(--green-bright)]"
-          size="xs"
+          size="lg"
         />
       </button>
       {isPopupVisible && <Popup closePopup={closePopup} />}

@@ -31,6 +31,27 @@ const projects: ProjectModel[] = [
     },
     {
         year: 2023,
+        title: "Tic-tac-toe Online",
+        description: `A platform to invite friends to play Tic-tac-toe on a board of any size and winning condition over the internet!`,
+        image: "./images/tictactoe.png",
+        link: "https://online-tictactoe.vercel.app",
+        github: "https://github.com/gowth6m/online-tictactoe-backend",
+        stack: [
+            "Golang",
+            "Gin-Gonic",
+            "MongoDB",
+            "Pusher",
+            "WebSockets",
+            "Vercel",
+            "React",
+            "Tailwind",
+            "Zustand",
+            "Tanstack Query",
+        ],
+        display: true,
+    },
+    {
+        year: 2023,
         title: "Neuraliser",
         description:
             "Application for visualising neural networks as directed graphs. Allows you to upload JSON files with data about layers, nodes and edges of the neural network then visualise, edit and export the updated neural network.",
@@ -51,7 +72,8 @@ const projects: ProjectModel[] = [
     {
         year: 2023,
         title: "Orsay AI",
-        description: "Personal AI to book more calls than sales team.",
+        description:
+            "A platform to view, respond and interact to leads on various platforms such as Instagram, WhatsApp, Slack, etc using AI agents. Also, talk to AI agents and configure them to respond to leads.",
         image: "./images/orsay.png",
         link: "https://app.orsay.ai",
         stack: [

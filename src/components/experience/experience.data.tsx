@@ -1,4 +1,5 @@
 type ExperienceModel = {
+    display: boolean;
     role: string;
     company: string;
     link: string;
@@ -14,6 +15,7 @@ type ExperienceModel = {
 
 const experience: ExperienceModel[] = [
     {
+        display: true,
         role: "Senior Frontend Developer",
         company: "Pollen Technologies",
         link: "https://www.pollentechnologies.com/",
@@ -36,6 +38,7 @@ const experience: ExperienceModel[] = [
         projects: [],
     },
     {
+        display: true,
         role: "Software Engineer",
         company: "Orsay AI",
         link: "https://orsay.ai",
@@ -62,6 +65,7 @@ const experience: ExperienceModel[] = [
         ],
     },
     {
+        display: true,
         role: "Frontend Developer",
         company: "HIVED",
         link: "https://hived.space",
@@ -96,6 +100,7 @@ const experience: ExperienceModel[] = [
         ],
     },
     {
+        display: true,
         role: "Software Engineer",
         company: "University of Exeter",
         link: "https://www.exeter.ac.uk/",
@@ -128,6 +133,7 @@ const experience: ExperienceModel[] = [
         ],
     },
     {
+        display: false,
         role: "Full Stack Developer",
         company: "Swmstudios",
         link: "https://swmstudios.com/",
@@ -151,6 +157,7 @@ const experience: ExperienceModel[] = [
         ],
     },
     {
+        display: false,
         role: "Frontend Developer",
         company: "Nocxa",
         link: "https://nocxa.com/",
