@@ -11,6 +11,31 @@ type ProjectModel = {
 
 const projects: ProjectModel[] = [
     {
+        year: 2024,
+        title: "Juris AI",
+        description:
+            "An advanced AI-powered platform designed to streamline contract review by analyzing individual clauses, assessing risk levels, and providing actionable improvement suggestions.",
+        image: "./images/jurisai.png",
+        link: "https://app.jurisai.uk",
+        github: "https://github.com/gowth6m/juris-ai",
+        stack: [
+            "Python",
+            "FastAPI",
+            "AWS Services",
+            "Open AI",
+            "LLM",
+            "Fargate",
+            "React",
+            "Material UI",
+            "TypeScript",
+            "Grafana",
+            "S3",
+            "DynamoDB",
+            "Docker",
+        ],
+        display: true,
+    },
+    {
         year: 2023,
         title: "NightBloom AI",
         description:
@@ -18,12 +43,15 @@ const projects: ProjectModel[] = [
         image: "./images/nightbloom.webp",
         link: "https://nightbloom.ai",
         stack: [
-            "Next.js",
+            "Rust",
+            "Axum",
             "React",
             "Framer Motion",
             "Material UI",
             "AWS Services",
-            "Node.js",
+            "S3",
+            "Docker",
+            "Kubernetes",
             "TypeScript",
             "DynamoDB",
         ],

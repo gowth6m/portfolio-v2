@@ -5,7 +5,6 @@ import "../styles/nav.css";
 import { Inter } from "next/font/google";
 import Head from "./head";
 import BackgroundAnimation from "@/components/misc/backgroundAnimation";
-import BackgroundHover from "@/components/misc/backgroundHover";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +19,7 @@ export default function RootLayout({
 
       <body>
         <BackgroundAnimation color={"white"} />
-        <BackgroundHover />
+        {/* <BackgroundHover /> */}
         {children}
       </body>
     </html>
