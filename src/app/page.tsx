@@ -26,20 +26,32 @@ const Home: React.FC = () => {
 
                 {/* Right */}
                 <div className="md:w-1/2 md:ml-auto flex flex-col gap-y-20 md:gap-y-28">
-                    <div id="About" ref={refAbout} className={"anchor"}>
+                    <div
+                        id="about"
+                        ref={refAbout}
+                        className={"anchor scroll-mt-24"}
+                    >
                         <About />
                     </div>
                     <div
-                        id="Experience"
+                        id="experience"
                         ref={refExperience}
-                        className={"anchor"}
+                        className={"anchor scroll-mt-24"}
                     >
                         <Experience />
                     </div>
-                    <div id="Projects" ref={refProjects} className={"anchor"}>
+                    <div
+                        id="projects"
+                        ref={refProjects}
+                        className={"anchor scroll-mt-24"}
+                    >
                         <Projects />
                     </div>
-                    <div ref={refContact} className={"anchor"}>
+                    <div
+                        id={"footer"}
+                        ref={refContact}
+                        className={"anchor scroll-mt-24"}
+                    >
                         <Footer />
                     </div>
                 </div>

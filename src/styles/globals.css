@@ -260,3 +260,7 @@ body {
 ::-webkit-scrollbar-track {
   background: var(--navy);
 }
+
+.anchor-item {
+  scroll-margin-top: 6rem;
+}

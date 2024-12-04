@@ -48,6 +48,15 @@ export default function BackgroundAnimation({
         return () => window.removeEventListener("resize", debounceResize);
     }, [handleResize]);
 
+    const boxes = useMemo(
+        () =>
+            makeBoxes(
+                windowSize.innerWidth > SCREEN_SIZE_LIMIT ? 100 : 20,
+                windowSize
+            ),
+        [windowSize]
+    );
+
     useEffect(() => {
         if (!canvasRef.current) return;
         const canvas = canvasRef.current;
@@ -55,11 +64,6 @@ export default function BackgroundAnimation({
         if (!c) return;
 
         let animationFrameId: number;
-
-        const boxes = makeBoxes(
-            windowSize.innerWidth > SCREEN_SIZE_LIMIT ? 100 : 20,
-            windowSize
-        );
 
         const draw = () => {
             c.clearRect(0, 0, windowSize.innerWidth, windowSize.innerHeight);
@@ -85,7 +89,7 @@ export default function BackgroundAnimation({
         return () => {
             cancelAnimationFrame(animationFrameId);
         };
-    }, [boxColor, windowSize]);
+    }, [boxColor, boxes, windowSize]);
 
     return (
         <canvas
