@@ -1,6 +1,8 @@
 import { MetadataRoute } from "next";
 
-const baseUrl = process.env.NEXT_PUBLIC_METADATA_BASE || 'http://gowtham.io';
+export const dynamic = 'force-static';
+
+const baseUrl = process.env.NEXT_PUBLIC_METADATA_BASE || 'http://gowtham.co.uk';
 
 const routes: { url: string, priority: number }[] = [
     { url: '/', priority: 1 },

@@ -1,15 +1,33 @@
 "use client";
 
 import React, { useRef } from "react";
-import About from "@/components/about/about";
-import Experience from "@/components/experience/experience";
-import Footer from "@/components/footer/footer";
 import Hero from "@/components/hero/hero";
+import About from "@/components/about/about";
+import Footer from "@/components/footer/footer";
 import Projects from "@/components/projects/projects";
+import Experience from "@/components/experience/experience";
+
+const SectionContainer = (props: {
+    id: string;
+    children: React.ReactNode;
+    reference: React.RefObject<HTMLDivElement | null>;
+}) => {
+    return (
+        <div
+            id={props.id}
+            ref={props.reference}
+            className={"anchor scroll-mt-24"}
+        >
+            {props.children}
+        </div>
+    );
+};
 
 const Home: React.FC = () => {
-    const { refAbout, refExperience, refProjects, refContact } =
-        useRefHandlers();
+    const refAbout = useRef<HTMLDivElement | null>(null);
+    const refExperience = useRef<HTMLDivElement | null>(null);
+    const refProjects = useRef<HTMLDivElement | null>(null);
+    const refContact = useRef<HTMLDivElement | null>(null);
 
     return (
         <main className="md:h-screen w-full z-10">
@@ -26,47 +44,22 @@ const Home: React.FC = () => {
 
                 {/* Right */}
                 <div className="md:w-1/2 md:ml-auto flex flex-col gap-y-20 md:gap-y-28">
-                    <div
-                        id="about"
-                        ref={refAbout}
-                        className={"anchor scroll-mt-24"}
-                    >
+                    <SectionContainer id="about" reference={refAbout}>
                         <About />
-                    </div>
-                    <div
-                        id="experience"
-                        ref={refExperience}
-                        className={"anchor scroll-mt-24"}
-                    >
+                    </SectionContainer>
+                    <SectionContainer id="experience" reference={refExperience}>
                         <Experience />
-                    </div>
-                    <div
-                        id="projects"
-                        ref={refProjects}
-                        className={"anchor scroll-mt-24"}
-                    >
+                    </SectionContainer>
+                    <SectionContainer id="projects" reference={refProjects}>
                         <Projects />
-                    </div>
-                    <div
-                        id={"footer"}
-                        ref={refContact}
-                        className={"anchor scroll-mt-24"}
-                    >
+                    </SectionContainer>
+                    <SectionContainer id={"footer"} reference={refContact}>
                         <Footer />
-                    </div>
+                    </SectionContainer>
                 </div>
             </div>
         </main>
     );
-};
-
-const useRefHandlers = () => {
-    const refAbout = useRef<HTMLDivElement>(null);
-    const refExperience = useRef<HTMLDivElement>(null);
-    const refProjects = useRef<HTMLDivElement>(null);
-    const refContact = useRef<HTMLDivElement>(null);
-
-    return { refAbout, refExperience, refProjects, refContact };
 };
 
 export default Home;

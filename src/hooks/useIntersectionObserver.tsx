@@ -1,51 +1,51 @@
 import { RefObject, useEffect, useRef, useState, useMemo } from "react";
 
 interface Args extends IntersectionObserverInit {
-  freezeOnceVisible?: boolean;
+    freezeOnceVisible?: boolean;
 }
 
 function useIntersectionObserver(
-  elementRef: RefObject<Element>,
-  {
-    threshold = 0,
-    root = null,
-    rootMargin = "0%",
-    freezeOnceVisible = false,
-  }: Args
+    elementRef: RefObject<Element | null>,
+    {
+        threshold = 0,
+        root = null,
+        rootMargin = "0%",
+        freezeOnceVisible = false,
+    }: Args
 ): boolean {
-  const [isIntersecting, setIntersecting] = useState(false);
+    const [isIntersecting, setIntersecting] = useState(false);
 
-  const observer = useRef<IntersectionObserver | null>(null);
+    const observer = useRef<IntersectionObserver | null>(null);
 
-  const options = useMemo(() => {
-    return {
-      threshold,
-      root,
-      rootMargin,
-    };
-  }, [threshold, root, rootMargin]);
+    const options = useMemo(() => {
+        return {
+            threshold,
+            root,
+            rootMargin,
+        };
+    }, [threshold, root, rootMargin]);
 
-  useEffect(() => {
-    if (observer.current) observer.current.disconnect();
+    useEffect(() => {
+        if (observer.current) observer.current.disconnect();
 
-    observer.current = new IntersectionObserver(([entry]) => {
-      setIntersecting(entry.isIntersecting);
-      if (entry.isIntersecting && freezeOnceVisible) {
-        observer.current?.disconnect();
-      }
-    }, options);
+        observer.current = new IntersectionObserver(([entry]) => {
+            setIntersecting(entry.isIntersecting);
+            if (entry.isIntersecting && freezeOnceVisible) {
+                observer.current?.disconnect();
+            }
+        }, options);
 
-    const currentElement = elementRef.current;
-    if (currentElement) {
-      observer.current.observe(currentElement);
-    }
+        const currentElement = elementRef.current;
+        if (currentElement) {
+            observer.current.observe(currentElement);
+        }
 
-    return () => {
-      observer.current?.disconnect();
-    };
-  }, [elementRef, options, freezeOnceVisible]);
+        return () => {
+            observer.current?.disconnect();
+        };
+    }, [elementRef, options, freezeOnceVisible]);
 
-  return isIntersecting;
+    return isIntersecting;
 }
 
 export default useIntersectionObserver;

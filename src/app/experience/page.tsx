@@ -63,7 +63,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
             custom={index}
             className="overflow-hidden"
         >
-            <div className="grid grid-cols-5 my-2 gap-x-2 overflow-x-hidden overflow-hidden">
+            <div className="grid grid-cols-3 md:grid-cols-5 my-2 gap-x-2 overflow-x-hidden overflow-hidden">
                 {/* Year */}
                 <div className="md:col-span-1 hidden md:flex">
                     {experience.dates}

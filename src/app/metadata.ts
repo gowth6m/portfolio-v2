@@ -1,5 +1,4 @@
-import { Metadata } from "next";
-import { URL } from "next/dist/compiled/@edge-runtime/primitives/url";
+import { Metadata, Viewport } from "next";
 
 export const mainMetadata: Metadata = {
     title: "Gowthaman Ravindrathas - Software Engineer based in London, UK",
@@ -25,13 +24,13 @@ export const mainMetadata: Metadata = {
     creator: "Gowthaman Ravindrathas",
     publisher: "Gowthaman Ravindrathas",
     alternates: {
-        canonical: "https://gowtham.io",
+        canonical: "https://gowtham.co.uk",
     },
     openGraph: {
         title: "Gowthaman Ravindrathas - Software Engineer Portfolio",
         description:
             "Portfolio of Gowthaman Ravindrathas - Software Engineer based in London, UK",
-        url: "https://gowtham.io",
+        url: "https://gowtham.co.uk",
         type: "website",
         locale: "en_GB",
         images: [
@@ -59,9 +58,13 @@ export const mainMetadata: Metadata = {
         ],
         apple: "/logo/logo.png",
     },
-    themeColor: "#0a192f",
-    viewport: "width=device-width, initial-scale=1",
     category: "portfolio",
     robots: "index, follow",
-    metadataBase: new URL('http://gowtham.io'),
+    metadataBase: new URL('http://gowtham.co.uk'),
+};
+
+export const viewport: Viewport = {
+    themeColor: "#0a192f",
+    width: "device-width",
+    initialScale: 1,
 };

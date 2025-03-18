@@ -1,23 +1,50 @@
 "use client";
 
-import React, { RefObject, useEffect, useState } from "react";
-import TypingText from "./typingText";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faCodepen,
     faGithub,
     faInstagram,
     faLinkedinIn,
-    faTwitter,
+    faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import TypingText from "./typingText";
 import { motion } from "framer-motion";
+import React, { RefObject, useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 
+const Socials = React.memo(() => {
+    return (
+        <motion.div
+            className="flex flex-row gap-x-6 my-6 md:mb-0 md:mt-auto"
+            variants={containerVariantsDelayed}
+            initial="hidden"
+            animate="visible"
+        >
+            {socials.map((social, index) => (
+                <motion.a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    custom={index}
+                    variants={itemVariants}
+                >
+                    <FontAwesomeIcon
+                        icon={social.icon}
+                        className="h-[25px] hover:text-[var(--green-bright)] duration-300 hover:translate-y-[-4px]"
+                    />
+                </motion.a>
+            ))}
+        </motion.div>
+    );
+});
+Socials.displayName = "Socials";
+
 interface HeroProps {
-    refAbout: RefObject<HTMLDivElement>;
-    refExperience: RefObject<HTMLDivElement>;
-    refProjects: RefObject<HTMLDivElement>;
-    refContact: RefObject<HTMLDivElement>;
+    refAbout: RefObject<HTMLDivElement | null>;
+    refExperience: RefObject<HTMLDivElement | null>;
+    refProjects: RefObject<HTMLDivElement | null>;
+    refContact: RefObject<HTMLDivElement | null>;
 }
 
 export default function Hero({
@@ -72,7 +99,7 @@ export default function Hero({
                 </div>
 
                 {/* Nav */}
-                <div className="md:flex flex-col gap-y-6 text-sm header-nav duration-300 hidden">
+                <div className="md:flex flex-col gap-y-6 text-sm header-nav hidden">
                     {navItems.map((item, index: number) => (
                         <motion.a
                             key={index}
@@ -92,27 +119,7 @@ export default function Hero({
             </div>
 
             {/* Socials */}
-            <motion.div
-                className="flex flex-row gap-x-6 my-6 md:mb-0 md:mt-auto"
-                variants={containerVariantsDelayed}
-                initial="hidden"
-                animate="visible"
-            >
-                {socials.map((social, index) => (
-                    <motion.a
-                        key={index}
-                        href={social.href}
-                        target="_blank"
-                        custom={index}
-                        variants={itemVariants}
-                    >
-                        <FontAwesomeIcon
-                            icon={social.icon}
-                            className="h-[25px] hover:text-[var(--green-bright)] duration-300 hover:translate-y-[-4px]"
-                        />
-                    </motion.a>
-                ))}
-            </motion.div>
+            <Socials />
         </motion.section>
     );
 }
@@ -134,9 +141,9 @@ const socials = [
         href: "https://www.instagram.com/gowth6m/",
     },
     {
-        name: "Twitter",
-        icon: faTwitter,
-        href: "https://twitter.com/gowth6m",
+        name: "X",
+        icon: faXTwitter,
+        href: "https://x.com/gowth6m",
     },
     {
         name: "CodePen",

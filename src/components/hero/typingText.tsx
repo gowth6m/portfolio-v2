@@ -13,16 +13,14 @@ export default function TypingText({ className }: any) {
   const period = 2000;
 
   const toRotate = [
-    "I create stuff sometimes.",
-    "I'm probably eating right now",
-    "What do you think about my website?",
-    "Send me food suggestions!",
+    "Probably vibe coding right now",
     "Scroll down to see more!",
     "Eat, Sleep, Code, Repeat",
+    "Check out my startup",
   ];
 
   useEffect(() => {
-    let ticker = setInterval(() => {
+    const ticker = setInterval(() => {
       tick();
     }, delta);
 
@@ -32,9 +30,9 @@ export default function TypingText({ className }: any) {
   });
 
   const tick = () => {
-    let i = loopNum % toRotate.length;
-    let fullText = toRotate[i];
-    let updatedText = isDeleting
+    const i = loopNum % toRotate.length;
+    const fullText = toRotate[i];
+    const updatedText = isDeleting
       ? fullText.substring(0, text.length - 1)
       : fullText.substring(0, text.length + 1);
 
